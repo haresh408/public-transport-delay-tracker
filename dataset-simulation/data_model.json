@@ -1,0 +1,41 @@
+{
+  "trainScheduleTime": {
+    "scheduleId": "",
+    "trainId": "",
+    "trainNumber": "",
+    "trainName": "",
+    "scheduledArrivalTime": "",
+    "scheduledDepartureTime": "",
+    "stationCodes": [],
+    "createdDate": ""
+  },
+  "trainLiveStatus": {
+    "eventId": "",
+    "trainId": "",
+    "eventType": "Arrival/Departure",
+    "stationCode": "",
+    "distanceCovered": "",
+    "totalDistance": "",
+    "noOfDays": "",
+    "actualArrivalTime": "",
+    "expectedArrivalTime": "",
+    "actualDepartureTime": "",
+    "expectedDepartureTime": "",
+    "createdDate": ""
+  },
+  "trainMaster": {
+    "trainId": "",
+    "trainNumber": "",
+    "operator": "",
+    "category": ""
+  },
+  "stationInfo": {
+    "stationId": "",
+    "stationName": "",
+    "stationCode": "",
+    "location": {
+      "latitude": "",
+      "longitude": ""
+    }
+  }
+}
