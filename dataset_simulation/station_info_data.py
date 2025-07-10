@@ -15,14 +15,17 @@ current_date = current_datetime.date()
 
 
 # Reading the CSV file
-df = pd.read_csv(path_link,encoding='latin-1')
+script_dir = os.path.dirname(os.path.abspath(__file__)) 
+config_path = os.path.join(script_dir,path_link)
+
+df = pd.read_csv(config_path,encoding='latin-1')
 n = len(df)
 
 #assigning unique station IDs
 df['stationId'] = [str(i).zfill(4) for i in range(1,n +1)]
 
-latitudes = np.linspace(-90, 90, n)
-longitudes = np.linspace(-180, 180, n)
+latitudes = np.linspace(-90, 90, n).astype(str)
+longitudes = np.linspace(-180, 180, n).astype(str)
 np.random.shuffle(latitudes)
 np.random.shuffle(longitudes)
 
