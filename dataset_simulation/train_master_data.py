@@ -16,7 +16,9 @@ data_path_link = 'data/trains_dataset.csv'
 
 
 # Reading the CSV file
-df = pd.read_csv(data_path_link,encoding='latin-1')
+script_dir = os.path.dirname(os.path.abspath(__file__)) 
+config_path = os.path.join(script_dir,data_path_link )
+df = pd.read_csv(config_path,encoding='latin-1')
 n = len(df)
 
 # Data Generation

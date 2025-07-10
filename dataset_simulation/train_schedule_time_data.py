@@ -11,18 +11,23 @@ from station_info_data import get_station_code
 from dataset_helper_methods import create_dirs_and_get_path
 
 
-train_master_data_path = os.path.join(create_dirs_and_get_path(), 'train_master_data.csv')
+train_master_data_path = os.path.join(create_dirs_and_get_path(makedirs=False), 'train_master_data.csv')
 train_master_data = pd.read_csv(train_master_data_path,encoding='latin-1')
 
+
+# Reading the CSV file for train data
 data_path_link = 'data/trains_dataset.csv'
-master_data = pd.read_csv(data_path_link,encoding='latin-1')
+script_dir = os.path.dirname(os.path.abspath(__file__)) 
+config_path = os.path.join(script_dir,data_path_link )
+
+master_data = pd.read_csv(config_path,encoding='latin-1')
 
 
 #variables
 trainIds = train_master_data['trainId'].tolist()
 train_no_and_names = list(zip(master_data['Train no.'].tolist(), master_data['Train name'].tolist()))
-trainNames = master_data['Train no.'].to_list()
-trainNumbers = master_data['Train name'].to_list()
+trainNames = master_data['Train name'].to_list()
+trainNumbers = master_data['Train no.'].to_list()
 
 
 n = get_df_length()
@@ -41,8 +46,19 @@ def get_arrival_and_departure_time():
     # Generate random times for arrival and departure
         hour = random.randint(0, 23)
         minute = random.randint(0, 59)
-        arrival_times.append(f"{hour:02}:{minute:02}")
-        departure_times.append(timedelta(minutes = random.choice([5,10])))
+
+        #arrival time in hh:mm format
+        arrival_time = f"{hour:02}:{minute:02}"
+        
+        #departure time is 5 or 10 minutes after arrival time
+        time_obj = datetime.strptime(arrival_time, "%H:%M")
+        delta = timedelta(minutes=random.choice([5, 10]))
+        new_time = time_obj + delta
+        departure_time = new_time.strftime("%H:%M")
+
+    
+        arrival_times.append(arrival_time)
+        departure_times.append(departure_time)
 
     return {"arrival_times":arrival_times, "departure_times":departure_times}
 

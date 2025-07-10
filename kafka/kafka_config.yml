@@ -1,0 +1,14 @@
+kafka_broker:
+    local_bootstrap_servers: "localhost:9092"
+    internal_bootstrap_servers: "host.docker.internal:9092"
+    container_bootstrap_servers: "kafka_broker:9092"
+
+kafka_batch_data:
+    topic: "train_station_info_batch_data"
+    partitions: 3
+    replication_factor: 1
+
+kafka_streams_data:
+    topic: "train_live_status_stream_data"
+    partitions: 3
+    replication_factor: 1

@@ -11,7 +11,7 @@ print("Starting startup scripts...\n")
 
 for script in startup_scripts:
     try:
-        subprocess.run(["python", script], check=True)
+        subprocess.run(["python", script],cwd="dataset_simulation" ,check=True)
         print(f"Successfully executed {script}")
     except subprocess.CalledProcessError as e:
         print(f"Error executing {script}: {e}")
@@ -20,7 +20,7 @@ max_runs = 120
 
 for i in range(max_runs):
     try:
-        subprocess.run(["python", "train_live_status.py"], check=True)
+        subprocess.run(["python", "train_live_status.py"],cwd="dataset_simulation" ,check=True)
         print(f"Run {i+1}/{max_runs} completed successfully.")
         time.sleep(30)
     except subprocess.CalledProcessError as e:

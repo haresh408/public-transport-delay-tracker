@@ -33,9 +33,8 @@
     "stationId": "",
     "stationName": "",
     "stationCode": "",
-    "location": {
-      "latitude": "",
-      "longitude": ""
-    }
+    "latitude": "",
+    "longitude": ""
+    
   }
 }

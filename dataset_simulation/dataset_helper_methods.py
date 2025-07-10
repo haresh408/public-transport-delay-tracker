@@ -50,7 +50,8 @@ def get_average_delay_late_trains_arrival():
     return late_average_delay
 
 def create_dirs_and_get_path(makedirs=True):
-    path = os.path.join(os.getcwd(), 'simulated-data', str(current_date))
+    PROJECT_ROOT = os.path.abspath(__file__)
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'simulated-data', str(current_date))
     if makedirs:
         os.makedirs(path, exist_ok=True)
     return path
