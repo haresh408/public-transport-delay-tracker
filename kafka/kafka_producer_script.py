@@ -107,9 +107,8 @@ def send_live_data(topic_name="train_live_status_stream_data"):
                 time.sleep(5)
                 continue
 
-            for _,rows in df.iterrows():
-                record = ','.join(str(x) for x in rows.values)
-                producer.send(topic_name, value=record.encode('utf-8'))
+            for _,row in df.iterrows():
+                producer.send(topic_name, value=json.dumps(row.to_dict()).encode('utf-8'))
                 producer.flush()
                 last_line += 1
                 print(f'[INFO] Record sent:{last_line}')
@@ -118,6 +117,7 @@ def send_live_data(topic_name="train_live_status_stream_data"):
         except FileNotFoundError:
             print(f"[WARN] File '{csv_file_name}' not found. Retrying in 5s...")
             time.sleep(3)
+
         except Exception as e:
             print(f"[ERROR] Failed to send live data: {e}")
             time.sleep(3)
