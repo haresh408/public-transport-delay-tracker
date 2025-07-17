@@ -1,0 +1,17 @@
+# Python Cache
+
+dataset_simulation/__pycache__/
+*.py[cod]
+
+#venv
+.venv/
+
+#jupyter
+.ipynb_checkpoints
+
+#data
+dataset_simulation/simulated-data/
+sparkApp/raw_data/
+sparkApp/silver_data/
+
+
