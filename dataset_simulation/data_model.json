@@ -27,14 +27,16 @@
     "trainId": "",
     "trainNumber": "",
     "operator": "",
-    "category": ""
+    "category": "",
+    "createdDate": ""
   },
   "stationInfo": {
     "stationId": "",
     "stationName": "",
     "stationCode": "",
     "latitude": "",
-    "longitude": ""
+    "longitude": "",
+    "createdDate": ""
     
   }
 }
